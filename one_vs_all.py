@@ -31,8 +31,17 @@ class one_vs_allLogisticRegressor:
         # Compute the K logistic regression classifiers                           #
         # TODO: 7-9 lines of code expected                                        # 
         # use C=1.0/reg, solver is sag and max_iter = 1000                        #    
-        ###########################################################################
+        ###############ß############################################################
 
+        print(len(self.labels))
+        print(y)
+        for i in range(len(self.labels)):
+            y_temp = (y == i).astype(int)
+            print(y_temp)
+            model = linear_model.LogisticRegression(penalty = 'l2', C = 1.0/reg, solver = 'sag', max_iter = 1000, fit_intercept=False)
+            model.fit(X, y_temp)
+            
+            theta_opt[:, i] = model.coef_
 
         ###########################################################################
         #                           END OF YOUR CODE                              #
@@ -59,7 +68,8 @@ class one_vs_allLogisticRegressor:
         # TODO: 1-2 lines of code expected                                        #
         ###########################################################################
 
-
+        probs = utils.sigmoid(X @ self.theta)
+        y_pred = probs.argmax(axis=1)
         ###########################################################################
         #                           END OF YOUR CODE                              #
         ###########################################################################
