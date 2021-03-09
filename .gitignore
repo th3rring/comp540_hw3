@@ -1,1 +1,6 @@
 grader_ova.pkl
+.vscode/
+datasets/
+__pycache__/*
+answer_ova.pkl
+grader-auto-all.out
