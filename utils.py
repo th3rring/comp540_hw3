@@ -5,7 +5,7 @@ import os
 import _pickle as pickle
 
 def get_CIFAR10_data(num_training=49000, num_validation=1000, num_test=10000):
-  """
+    """
   Load the CIFAR-10 dataset from disk and perform preprocessing to prepare
   it for the softmax classifier. 
   """
@@ -40,7 +40,7 @@ def load_CIFAR_batch(filename):
     return X, Y
 
 def load_CIFAR10(cifar10_root):
-  """ load all of cifar """
+    """ load all of cifar """
     xs = []
     ys = []
     for b in range(1,6):
